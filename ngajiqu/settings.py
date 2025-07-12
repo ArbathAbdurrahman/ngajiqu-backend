@@ -29,6 +29,7 @@ INSTALLED_APPS = [
     # Local apps
     'ngajiqu',
     'akun',
+    'kelas',
 ]
 
 MIDDLEWARE = [

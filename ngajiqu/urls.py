@@ -25,5 +25,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
 
     path('api/akun/', include('akun.urls')),
+    path('api/kelas/', include('kelas.urls')),
     path('api/docs/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

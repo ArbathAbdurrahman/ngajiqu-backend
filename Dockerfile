@@ -12,4 +12,4 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY . .
 RUN python manage.py collectstatic --noinput
 EXPOSE 8000
-CMD ["gunicorn", "sukanews.wsgi:application", "--bind", "0.0.0.0:8000", "--workers=3", "--timeout=30"]
+CMD ["gunicorn", "ngajiqu.wsgi:application", "--bind", "0.0.0.0:8000", "--workers=3", "--timeout=30"]

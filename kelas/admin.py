@@ -1,3 +1,7 @@
 from django.contrib import admin
+from .models import *
 
-# Register your models here.
+admin.site.register(Kelas)
+admin.site.register(Santri)
+admin.site.register(Kegiatan)
+admin.site.register(Ngaji)

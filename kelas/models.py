@@ -26,7 +26,7 @@ class Ngaji(models.Model):
     pengampu = models.CharField(max_length=255)
     catatan = models.CharField(max_length=255)
 
-    def __str__(self):
+    def __int__(self):
         return self.nama
 
 

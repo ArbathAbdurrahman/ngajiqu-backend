@@ -11,19 +11,17 @@ class KelasViewSet(viewsets.ModelViewSet):
     queryset = Kelas.objects.all()
     serializer_class = KelasSerializer
     permission_classes = [IsOwnerOrReadOnly]
-    lookup_field = 'slug'
+    lookup_field = 'slug' 
     
     def perform_create(self, serializer):
         serializer.save(author=self.request.user)
     
     def get_queryset(self):
-        queryset = Kelas.objects.all()
+        qs = Kelas.objects.all().order_by('nama', 'id')
         if self.request.user.is_authenticated:
-            # Authenticated user bisa lihat semua kelas
-            return queryset
-        else:
-            # Anonymous user bisa lihat semua kelas (read-only)
-            return queryset
+            return (Kelas.objects.filter(author=self.request.user).order_by('nama', 'id'))
+        return qs
+
     
     @action(detail=True, methods=['get'])
     def santri(self, request, slug=None):
